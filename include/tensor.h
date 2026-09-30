@@ -8,5 +8,9 @@ private:
 
 public:
     Tensor(int r, int c );
-    ~Tensior();
+    ~Tensor();
+
+    float& at(int r, int c);
+    void fill(float value);
+    void print() const;
 };
