@@ -1,37 +1,27 @@
-#include "../include/tensor.h"
+#include "tensor.h"
 #include <iostream>
 
-// Constructor: Claiming the memory in RAM
+// Constructor: Allocates the memory
 Tensor::Tensor(int r, int c) {
     rows = r;
     cols = c;
-
-    // the physical act of grabbing empty space in RAM
-    data = new float[rows * cols];
-
-    std::cout << "Tensor memory allocated!" << std::endl;
+    data = new float[rows * cols]; // Asks the CPU for raw memory
 }
 
-// Destructor: Giving memory back to computer
+// Destructor: Frees the memory (Prevents Memory Leaks)
 Tensor::~Tensor() {
-    delete[] data;
-    std::cout << "Tensor memory freed!" << std::endl;
+    delete[] data; // Hands the memory back to the CPU
 }
 
-// Translates 2D coordinates into 1D index
-float& Tensor::at(int r, int c) {
-    return data[r * cols + c];
-}
-
-// Runs through the entire tensor and fills it with a value
+// Fills the tensor
 void Tensor::fill(float value) {
     int total = rows * cols;
-    for(int i = 0; i < rows; i++) {
+    for(int i = 0; i < total; i++) { 
         data[i] = value;
     }
 }
 
-// Prints the numbers to the terminal in a neat grid
+// Prints the tensor
 void Tensor::print() const {
     for(int i = 0; i < rows; i++) {
         std::cout << "[";
@@ -39,5 +29,15 @@ void Tensor::print() const {
             std::cout << data[i * cols + j] << " ";
         }
         std::cout << "]\n";
+    }
+}
+// Adds another tensor to this one element-by-element
+void Tensor::add(const Tensor& other) {
+    int total = rows * cols;
+    for(int i = 0; i < total; i++) {
+    data[i] = data[i] + other.data[i];
+        // Write the math right here. 
+        // Update data[i] by adding other.data[i] to it.
+        
     }
 }

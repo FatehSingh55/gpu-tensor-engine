@@ -13,4 +13,5 @@ public:
     float& at(int r, int c);
     void fill(float value);
     void print() const;
+    void add(const Tensor& other);
 };
