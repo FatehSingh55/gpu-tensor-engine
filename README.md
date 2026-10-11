@@ -1,17 +1,17 @@
 # gpu-tensor-engine
-A bare-metal C++ and CUDA tensor engine built from scratch to explore low-level memory management, custom tensor operations, and GPU hardware acceleration without high-level framework abstractions.
 
-## Core Architecture Goals
-- **Custom Memory Allocator:** Explicit CPU/GPU memory management, allocation, and tracking to eliminate hidden overhead.
-- **Core Tensor Operations:** Implementing fundamental forward passes (matrix multiplication, element-wise ops, activations) from mathematical first principles.
-- **CUDA Kernel Optimization:** Writing custom CUDA kernels for parallelized thread-block execution and reduction operations.
+Building a bare-metal tensor engine from scratch in C++ and CUDA. The goal of my project is to actually understand memory management, pointers, and how hardware works instead of just relying on Python libraries.
 
-## 🛠️ Current Development Roadmap
+## Current Focus
+* Figuring out how to  allocate and free memory on the heap without crashing the program.
+* Learning how to represent a 2D matrix as a flat 1D array in memory to make it run faster on the CPU cache.
+* Trying to execute the project with splitting into phases for a clean workspace enviorment and clean goal. 
 
-- [x] **Phase 1:** Core CPU Tensor Data Structures & Contiguous Memory Layout
-- [ ] **Phase 2:** Basic Arithmetic & Matrix Multiplication Operations
-- [ ] **Phase 3:** CUDA Integration & Custom Kernel Writing
-- [ ] **Phase 4:** Benchmarking & Latency Optimization
-- [ ] **Phase 5:** Automatic Differentiation (Autograd Engine)
-- [ ] **Phase 6:** Neural Network Operators & Activation Functions
-- [ ] **Phase 7:** End-to-End Deep Learning Training Demonstration
+## The 7-Phase Roadmap
+- [x] Phase 1: Basic C++ setup, pointers, and 1D contiguous memory allocation
+- [ ] Phase 2: CPU matrix math (addition, multiplication) and operator overloading
+- [ ] Phase 3: CUDA basics and moving data between CPU and GPU
+- [ ] Phase 4: Writing custom CUDA kernels for parallel matrix multiplication
+- [ ] Phase 5: Figuring out automatic differentiation (building an autograd engine)
+- [ ] Phase 6: Implementing standard neural network layers (ReLU, Linear)
+- [ ] Phase 7: Full end-to-end training loop demonstration
